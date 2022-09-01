@@ -24,9 +24,9 @@ public class CardScript : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    /*void OnDestroy()
     {
         height_count = 0.0f;
         card_count = 0;
-    }
+    }*/
 }
