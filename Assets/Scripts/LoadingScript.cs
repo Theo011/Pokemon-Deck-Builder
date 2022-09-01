@@ -37,7 +37,15 @@ public class LoadingScript : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            text_mesh.text = "SOMETHING WENT WRONG, TAP THE SCREEN TO QUIT...";
+            if (SystemInfo.deviceType == DeviceType.Handheld)
+            {
+                text_mesh.text = "SOMETHING WENT WRONG, TAP THE SCREEN TO QUIT...";
+            }
+            else
+            {
+                text_mesh.text = "SOMETHING WENT WRONG, PRESS ANYTHING TO QUIT...";
+            }
+            
             error = true;
             Debug.Log(e.Message);
         }
@@ -93,7 +101,15 @@ public class LoadingScript : MonoBehaviour
             }
         }
         
-        text_mesh.text = "TAP THE SCREEN TO CONTINUE...";
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            text_mesh.text = "TAP THE SCREEN TO CONTINUE...";
+        }
+        else
+        {
+            text_mesh.text = "PRESS ANYTHING TO CONTINUE...";
+        }
+        
         change_canvas = true;
     }
 }
