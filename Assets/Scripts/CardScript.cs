@@ -12,7 +12,7 @@ public class CardScript : MonoBehaviour
         // Debug.Log(name);
         if (card_count < 20)
         {
-            height_count += 60;
+            height_count += 80;
             GameObject new_text = Instantiate(card_text.gameObject, card_text.transform.position, card_text.transform.rotation);
             new_text.transform.SetParent(card_text.transform.parent);
             new_text.transform.position = new Vector3(card_text.transform.position.x, card_text.transform.position.y - height_count, card_text.transform.position.z);
