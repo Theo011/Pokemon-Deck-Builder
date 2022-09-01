@@ -16,6 +16,8 @@ public class LoadingScript : MonoBehaviour
     public Image image;
     private float width_count = 0.0f;
     static private bool is_already_loaded = false;
+    public AudioSource deck_builder_audio_source;
+    private bool is_already_in_deck_builder = false;
 
     void Start()
     {
@@ -43,10 +45,13 @@ public class LoadingScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown && change_canvas == true)
+        if (Input.anyKeyDown && change_canvas == true && is_already_in_deck_builder == false)
         {
             loading.enabled = false;
+            GetComponent<AudioSource>().Stop();
             deck_builder.enabled = true;
+            is_already_in_deck_builder = true;
+            deck_builder_audio_source.Play();
         }
         
         if (Input.anyKeyDown && error == true)
